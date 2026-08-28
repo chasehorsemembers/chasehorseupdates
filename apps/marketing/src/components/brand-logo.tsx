@@ -20,7 +20,7 @@ export function BrandLogo({
           className,
         )}
       >
-        ChaseHorse
+        {/*ChaseHorse */}
       </span>
     );
   }
