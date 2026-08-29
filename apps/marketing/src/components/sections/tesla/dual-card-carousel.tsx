@@ -52,7 +52,7 @@ function DualCard({
       <div
         className={cn(
           'relative w-full',
-          size === 'primary' ? 'aspect-[16/10]' : 'aspect-[4/5]',
+          size === 'secondary' ? 'h-full' : 'aspect-[16/10] md:h-full',
           isDark && 'min-h-[280px] sm:min-h-[320px]',
         )}
       >
@@ -184,17 +184,17 @@ export function DualCardCarousel({
   if (count === 0) return null;
 
   const primary = slides[activeIndex];
-  const secondary = count > 1 ? slides[(activeIndex + 1) % count] : undefined;
+  const secondary = slides[(activeIndex + 1) % count];
 
   return (
     <section className={cn('bg-tesla-cream p-3 sm:p-4', className)}>
       <Reveal>
-        <div className="flex flex-col gap-4 md:flex-row md:items-stretch">
-          <div className="md:flex-[0_0_62%]">
+        <div className="flex flex-col gap-4 overflow-hidden rounded-[10px] md:flex-row md:items-stretch">
+          <div className="md:flex-[0_0_65%] md:shrink-0">
             <DualCard slide={primary} variant={variant} size="primary" priority />
           </div>
           {secondary && (
-            <div className="md:flex-[0_0_38%]">
+            <div className="md:flex-[0_0_45%] md:shrink-0">
               <DualCard slide={secondary} variant={variant} size="secondary" onAdvance={advance} />
             </div>
           )}
