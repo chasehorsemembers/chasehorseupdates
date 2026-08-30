@@ -341,7 +341,7 @@ export function MegaMenuPanel({
           </div>
         )}
 
-        {layout === 'shop' && content.products && (
+        {layout === 'shop' && (
           <div>
             {(content.title || content.description) && (
               <div className="mb-8 max-w-md">
@@ -351,31 +351,41 @@ export function MegaMenuPanel({
                 )}
               </div>
             )}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {content.products.map((product) => (
-                <Link
-                  key={product.href}
-                  href={product.href}
-                  onClick={onNavigate}
-                  className="group text-center"
-                >
-                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-white">
-                    <LazyImage
-                      src={product.image}
-                      alt={product.label}
-                      fill
-                      wrapperClassName="absolute inset-0"
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                      sizes="200px"
-                    />
-                  </div>
-                  <p className="mt-3 text-[14px] font-medium text-[#171a20]">{product.label}</p>
-                  {product.price && (
-                    <p className="text-[13px] text-[#5c5e62]">{product.price}</p>
-                  )}
-                </Link>
-              ))}
+
+            {/* Only 2 category images */}
+            <div className="grid gap-6 sm:grid-cols-2">
+              {/* Casuals */}
+              <div className="text-center">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white">
+                  <LazyImage
+                    src="/images/casuals.png"
+                    alt="Casuals"
+                    fill
+                    wrapperClassName="absolute inset-0"
+                    className="object-cover transition duration-300 hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                <p className="mt-3 text-[14px] font-medium text-[#171a20]">Casuals</p>
+              </div>
+
+              {/* PPE Kits */}
+              <div className="text-center">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white">
+                  <LazyImage
+                    src="/images/ppe-kit.png"
+                    alt="PPE Kits"
+                    fill
+                    wrapperClassName="absolute inset-0"
+                    className="object-cover transition duration-300 hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                <p className="mt-3 text-[14px] font-medium text-[#171a20]">PPE Kits</p>
+              </div>
             </div>
+
+            {/* Existing Shop All link remains unchanged */}
             {content.promo && (
               <div className="mt-8 text-center">
                 <Link
