@@ -87,22 +87,34 @@ export function buildMegaMenus(content: RuntimeSiteContent): Record<string, Mega
       exploreHref: '/solutions/design',
       cards: [
         {
-          title: 'Design Your Solution',
+          title: 'Sectors',
+          body: 'Discover solutions for shippers, 3PLs and freight forwarders.',
+          href: '/sectors',
+          image: IMAGES.warehouse,
+        },
+        {
+          title: 'Industries',
+          body: 'Learn about industry-specific benefits and use cases.',
+          href: '/industries',
+          image: IMAGES.featured.warehouse,
+        },
+        {
+          title: 'Partner ecosystem',
+          body: 'Explore project44 integrations and partnerships.',
+          href: '/partners',
+          image: IMAGES.team,
+        },
+        {
+          title: 'Design your solution (DIY)',
           body: 'Select Tier 1–3 services and subservices, then pay for your package.',
           href: '/solutions/design',
           image: IMAGES.digital,
         },
         {
-          title: 'By Tier',
-          body: 'Explore Core, Strategic Growth, and Advanced Technology catalogues.',
-          href: '/services',
-          image: IMAGES.tiers.tier2,
-        },
-        {
-          title: 'Industries & Verticals',
-          body: 'Consulting, operations, growth, technology — beyond courier-only.',
-          href: '/platform',
-          image: IMAGES.featured.warehouse,
+          title: 'Customised solution',
+          body: 'Get a tailored solution for your specific business requirements.',
+          href: '/contact',
+          image: IMAGES.logistics,
         },
       ],
       railTabs: [
@@ -174,28 +186,19 @@ export function buildMegaMenus(content: RuntimeSiteContent): Record<string, Mega
       layout: 'discover',
       columns: [
         {
-          title: 'Training',
+          title: 'Location Services',
           links: [
-            ...courses.map((c) => ({ label: c.title, href: `/courses/${c.slug}` })),
-            { label: 'All Courses', href: '/courses' },
+            { label: 'Find Us', href: '/find-us' },
+            { label: 'Find a Collision Center', href: '/collision-center' },
+            { label: 'Find a Certified Installer', href: '/certified-installer' },
           ],
         },
         {
           title: 'Company',
           links: [
-            { label: 'Job Opportunities', href: '/jobs' },
-            { label: 'Platform Overview', href: '/platform' },
-            { label: 'Contact Us', href: '/contact' },
-            { label: 'Partners', href: '/partners' },
-          ],
-        },
-        {
-          title: 'Resources',
-          links: [
-            { label: 'Three-Tiers Model', href: '/#tiers' },
-            { label: 'Live Market', href: '/live-market' },
-            { label: 'All Services', href: '/services' },
-            { label: 'HSE Shop', href: '/merchandise' },
+            { label: 'About', href: '/about' },
+            { label: 'Careers', href: '/careers' },
+            { label: 'Investor Relations', href: '/investor-relations' },
           ],
         },
       ],
@@ -217,6 +220,9 @@ export function buildMegaMenus(content: RuntimeSiteContent): Record<string, Mega
         ctaLabel: 'Open HSE Shop',
         href: '/merchandise',
       },
+      actions: [
+        { label: 'Search for Offline Store', href: '/offline-stores' }
+      ],
     },
 
     Partners: {
