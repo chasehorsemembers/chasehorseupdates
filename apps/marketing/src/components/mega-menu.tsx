@@ -386,15 +386,28 @@ export function MegaMenuPanel({
             </div>
 
             {/* Existing Shop All link remains unchanged */}
-            {content.promo && (
-              <div className="mt-8 text-center">
-                <Link
-                  href={content.promo.href}
-                  onClick={onNavigate}
-                  className="text-[14px] font-medium text-[#3e6ae1] hover:underline"
-                >
-                  {content.promo.ctaLabel} →
-                </Link>
+            {(content.promo || (content.actions && content.actions.length > 0)) && (
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 text-center">
+                {content.promo && (
+                  <Link
+                    href={content.promo.href}
+                    onClick={onNavigate}
+                    className="text-[14px] font-medium text-[#3e6ae1] hover:underline"
+                  >
+                    {content.promo.ctaLabel} →
+                  </Link>
+                )}
+                
+                {content.actions?.map((action) => (
+                  <Link
+                    key={action.href}
+                    href={action.href}
+                    onClick={onNavigate}
+                    className="text-[14px] font-medium text-[#5c5e62] hover:text-[#171a20] hover:underline"
+                  >
+                    {action.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
